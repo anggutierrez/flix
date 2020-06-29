@@ -18,6 +18,7 @@
 		AC3CEFD424A558A50070DEE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CEFD324A558A50070DEE0 /* main.m */; };
 		AC3CEFDE24A558A50070DEE0 /* flixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CEFDD24A558A50070DEE0 /* flixTests.m */; };
 		AC3CEFE924A558A50070DEE0 /* flixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CEFE824A558A50070DEE0 /* flixUITests.m */; };
+		AC94F21C24AA8F6B00B9FB50 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94F21B24AA8F6B00B9FB50 /* DetailsViewController.m */; };
 		ACDFE13F24A660CA00A327F8 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDFE13E24A660CA00A327F8 /* MoviesViewController.m */; };
 		ACDFE14524A6AC5B00A327F8 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDFE14424A6AC5B00A327F8 /* MovieCell.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,8 @@
 		AC3CEFE424A558A50070DEE0 /* flixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3CEFE824A558A50070DEE0 /* flixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixUITests.m; sourceTree = "<group>"; };
 		AC3CEFEA24A558A50070DEE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC94F21A24AA8F6B00B9FB50 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		AC94F21B24AA8F6B00B9FB50 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		ACDFE13D24A660CA00A327F8 /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		ACDFE13E24A660CA00A327F8 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		ACDFE14324A6AC5B00A327F8 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			children = (
 				ACDFE13D24A660CA00A327F8 /* MoviesViewController.h */,
 				ACDFE13E24A660CA00A327F8 /* MoviesViewController.m */,
+				AC94F21A24AA8F6B00B9FB50 /* DetailsViewController.h */,
+				AC94F21B24AA8F6B00B9FB50 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				AC3CEFC324A558A30070DEE0 /* AppDelegate.m in Sources */,
 				ACDFE14524A6AC5B00A327F8 /* MovieCell.m in Sources */,
 				ACDFE13F24A660CA00A327F8 /* MoviesViewController.m in Sources */,
+				AC94F21C24AA8F6B00B9FB50 /* DetailsViewController.m in Sources */,
 				AC3CEFD424A558A50070DEE0 /* main.m in Sources */,
 				AC3CEFC624A558A30070DEE0 /* SceneDelegate.m in Sources */,
 			);
