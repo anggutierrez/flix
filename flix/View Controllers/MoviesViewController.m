@@ -8,6 +8,7 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -21,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Start setting up the defined UITableViewDataSource and UITableViewDelegate we said we would provide at the top function declaration.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -40,7 +43,8 @@
                    NSLog(@"%@", movie[@"title"]);
                }
                
-               NSLog(@"%@", dataDictionary);
+               // Used to make sure I was properly calling
+               // NSLog(@"%@", dataDictionary);
                [self.tableView reloadData];
                // TODO: Get the array of movies
                // TODO: Store the movies in a property to use elsewhere
@@ -58,9 +62,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell"];
     
+    // Gets our title and overview at the movie index
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
+    
+    // Strings to access our assets
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+	
+	[cell.posterView setImageWithURL:posterURL];
+    
     
 //    cell.textLabel.text = movie[@"title"];
     
