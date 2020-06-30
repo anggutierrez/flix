@@ -36,12 +36,30 @@
 }
 
 - (void) fetchMovies {
+	// Alert for when we have network issues
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Connection Error!"
+		   message:@"Please connect to the internet and refresh the page."
+	preferredStyle:(UIAlertControllerStyleAlert)];
+	
+	// create an OK action
+	UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+													   style:UIAlertActionStyleDefault
+													 handler:^(UIAlertAction * _Nonnull action) {
+															 // handle response here.
+													 }];
+	// add the OK action to the alert controller
+	[alert addAction:okAction];
+	
 	NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+			   // Our Alert is being called here!
+								  [self presentViewController:alert animated:YES completion:^{
+								   // Run other stuff off of completion
+								   }];
            } else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
