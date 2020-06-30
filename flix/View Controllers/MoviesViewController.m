@@ -23,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     // Start setting up the defined UITableViewDataSource and UITableViewDelegate we said we would provide at the top function declaration.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -64,10 +62,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	
+	
     return self.movies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Do any additional setup after loading the view.
+	
+	// Start animating the loading screen
+	[self.activityIndicator startAnimating];
+	
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell"];
     
     // Gets our title and overview at the movie index
@@ -84,8 +89,8 @@
 	
 	[cell.posterView setImageWithURL:posterURL];
     
-    
-//    cell.textLabel.text = movie[@"title"];
+	// Stop the activity indicator
+	[self.activityIndicator stopAnimating];
     
     return cell;
 }

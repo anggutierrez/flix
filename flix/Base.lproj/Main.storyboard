@@ -19,6 +19,11 @@
                                 <rect key="frame" x="0.0" y="23" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="pbq-2x-0KH">
+                                    <rect key="frame" x="0.0" y="207" width="414" height="359"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="151" id="e8G-H8-k9A" customClass="MovieCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="151"/>
@@ -63,6 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="agF-pW-tgT"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="pbq-2x-0KH" id="xkp-eA-kGV"/>
                         <outlet property="tableView" destination="I2A-cT-kkg" id="Rt2-co-UGh"/>
                     </connections>
                 </viewController>
