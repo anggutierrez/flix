@@ -44,7 +44,7 @@
 	self.titleLabel.text = self.movie[@"title"];
 	self.synposisLabel.text = self.movie[@"overview"];
 	
-	[self.titleLabel sizeToFit];
+//	[self.titleLabel sizeToFit];
 	[self.synposisLabel sizeToFit];
 	
 	

@@ -8,6 +8,7 @@
 
 #import "MoviesGridViewController.h"
 #import "MovieCollectionCell.h"
+#import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -28,6 +29,17 @@
 	self.collectionView.delegate = self;
 	
 	[self fetchMovies];
+	
+	UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+	
+	layout.minimumInteritemSpacing = 0;
+	layout.minimumLineSpacing = 7;
+	
+	// Cell view
+	CGFloat postersPerRow = 3;
+	CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerRow - 1)) / postersPerRow;
+	CGFloat itemHeight = itemWidth * 1.5;
+	layout.itemSize = CGSizeMake(itemWidth, itemHeight);
 }
 
 - (void) fetchMovies {
@@ -95,6 +107,19 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 	return self.movies.count;
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+	UICollectionViewCell *tappedCell = sender;
+	NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+	NSDictionary *movie = self.movies[indexPath.item];
+	
+	DetailsViewController *detailsViewController = [segue destinationViewController];
+	detailsViewController.movie = movie;
+	
 }
 
 @end
